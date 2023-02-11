@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="index.css">
+
+    <title>Gerador de Senhas</title>
+</head>
+<body>
+    <div class="container">
+        <h1 id="titulo-principal">GERADOR DE SENHAS</h1>
+            <div class="senha-container">
+                <p id="senha-el1"></p>
+                <button class="copiar-btn" onclick="selectText()">Copiar senha</button>
+            </div>
+            <div class="senha-container">
+                <p id="senha-el2"></p>
+                <button class="copiar-btn" onclick="selectText()">Copiar senha</button>
+            </div>
+            <div class="seletores-div">
+                <div id="number" class="row">   
+                    <label>Número de caracteres</label>
+                    <input type="number" id="number-box" placeholder="10" min="4" max="20">
+                </div>
+                <div class="row">
+                    <label>Números</label>
+                    <input class="toggle-el" value="numbersCheckbox" type="checkbox" checked>
+                </div>
+                <div class="row">
+                    <label>Letras maiúsculas</label>
+                    <input class="toggle-el" value="upLettersCheckbox" type="checkbox">
+                </div>
+                <div class="row">
+                    <label>Letras minúsculas</label>
+                    <input class="toggle-el" value="lowLettersCheckbox" type="checkbox">
+                </div>
+                <div class="row">                
+                    <label>Caracteres especiais</label>
+                    <input class="toggle-el" value="symbolsCheckbox" type="checkbox">
+                </div>
+            </div>
+                <button id="generate-btn"">GERAR SENHAS</button>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

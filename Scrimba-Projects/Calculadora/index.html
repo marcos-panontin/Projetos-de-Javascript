@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="full-display">
+            <h1 class="mini-display" id="previous-value" data-previous-operand></h1>
+            <h1 class="display"  id="current-value" data-current-operand></h1>
+        </div>
+        <div class="buttonsDiv">
+                <button data-operation class="operators" value="+">+</button>
+                <button data-operation class="operators minus" value="-">-</button>
+                <button data-operation class="operators"value="*">x</button>
+                <button data-operation class="operators"value="/">/</button>
+                <button data-number class="num-buttons" value="7">7</button>
+                <button data-number class="num-buttons" value="8">8</button>
+                <button data-number class="num-buttons" value="9">9</button>
+                <button data-equal id="equal" class="equal">=</button>               
+                <button data-number class="num-buttons" value="4">4</button>
+                <button data-number class="num-buttons" value="5">5</button>
+                <button data-number class="num-buttons" value="6">6</button>
+                <button data-number class="num-buttons" value="1">1</button>
+                <button data-number class="num-buttons" value="2">2</button>
+                <button data-number class="num-buttons" value="3">3</button>
+                <button data-number class="num-buttons" value="0">0</button>
+                <button class="num-buttons" data-number value=".">.</button>
+                <button data-clear class="clear">C</button>
+                <button data-delete class="delete">DEL</button>
+            </div>
+        </div>
+    <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+@font-face {
+    font-family: 'Caveat', cursive;
+}
+
+@font-face {
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
+body {
+    padding: 20px;
+    color: #e68e01;
+    width: 1000px;
+    margin: 0 auto;
+    background-color: #14213d;
+    display: flex;
+    
+
+}
+
+.container {
+    margin: auto;
+    align-items: center;
+    border: #fca311 solid 4px;
+    border-radius: 30px;
+    background-color: #e5e5e5;
+    padding: 50px;
+}
+
+header {
+    text-align: center;
+    display: flex;
+}
+
+.textHeader {
+    margin: auto 0px auto 20px;
+    padding: 0;
+    max-width: 700px;
+    font-family: Montserrat Alternates;
+}
+
+.chang {
+    color: black;
+    font-style: italic;
+}
+
+.picHeader {
+    display: flex;
+    justify-content: left;
+    margin-right: 25px;
+    margin-top: 25px;
+    margin-left: 0;
+}
+
+.imageForHeader {
+    width: 200px;
+    border-radius: 100px;
+}
+
+section {
+    display: flex;
+}
+
+.inputSection {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin-left: 65px;
+    margin-right: 0px;
+}
+
+textarea {
+    resize: none;
+    font-family: Caveat;
+    font-size: 40px;
+    background-color: green;
+    color:white;
+    width: 400px;
+    height: 250px;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 0px auto;
+    margin-top: 20px;
+}
+
+textarea::placeholder {
+    color: rgb(185, 183, 183);
+}
+
+input {
+    margin: 15px 25px 25px auto;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: #008CBA;
+    color: #ffff;
+    font-family: 'Caveat';
+    font-size: 30px;
+}
+
+input:hover {
+    background-color: #00475f;
+}
+
+.imageSection {
+    width: 600px;
+    position: relative;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.changImages {
+    max-width: 100%;
+    max-height: 250px;
+    margin: 0 auto;
+    display: flex;
+    border-radius: 15px;
+}
+
+.afterMessage {
+    position: absolute;
+    margin-top: auto;
+    color: yellow;
+    font-size: 30px;
+    text-shadow: black 2px 1px;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#italic {
+    font-style: italic;
+}
+
+.hidden {
+    display: none;
+}

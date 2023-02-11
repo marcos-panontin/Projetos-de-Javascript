@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css"></link>
+    <title>Mobile Restaurant App</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>Jimmy's Diner</h1>
+            <h2>The best burgers and pizzas in town</h2>
+        </header>
+
+        <section class="food-items" id="food-items">
+        </section>
+
+        <div class="confirm-order-div hidden" id="confirm-order-div">
+
+            <section class="order-info" >
+                <p>Your order</p>
+                <div id="order-div" class="order-div"></div>
+                <div id="total-price-div"></div>
+            </section>
+            <button class="close-order btn">Complete order</button>
+        </div>
+
+        <div class="modal hidden" id="modal">
+            <h1>Enter card details</h1>
+            <form class="input-fields" onsubmit="funcaoSubmeter(); return false;">
+                <input type="text" required placeholder="Enter your name"></input>
+                <input type="text" required placeholder="Enter card number"></input>
+                <input type="text" required placeholder="Enter CVV"></input>
+                <input type="submit" class="pay-btn btn" value="Pay"></input>
+
+            </form>
+        </div>
+
+        <div class="thanks-msg hidden" id="thanks-msg">
+            <p>Thanks, James! Your order is on its way!</p>
+            <button class="new-order-btn btn" id="new-order-btn">New order</button>
+        </div>
+
+    </div>
+    <script src="index.js" type="module"></script>
+</body>
+</html>
