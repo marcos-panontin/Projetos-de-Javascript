@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+button {
+  padding: 8px;
+  width: 140px;
+  border: 2px solid white;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.1s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+	overflow: hidden;
+}
+
+.header, .footer {
+  background-color: blue;
+}
+
+.pages {
+  display: flex;
+  width: 500%;
+  box-sizing: border-box;
+}
+
+.page {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  transition: all 0.7s;
+  color: white;
+}
+
+.pensar {
+  background: orangered;
+}
+
+.hall {
+  background: orangered;
+  background-image: url("https://en.chateauversailles.fr/sites/default/files/salle_1792_c_christian_milet-3540.jpg");
+}
+
+.cozinha {
+  background-color: dodgerblue;
+  background-image: url("https://www.salonemilano.it/sites/default/files/styles/libero/public/2022-04-22/CLASSIC-KITCHEN_02.jpg?itok=JAcmYua1");
+}
+
+.quartos {
+  background-color: indigo;
+}
+
+.four {
+  background-color: limegreen;
+}
+
+/* IMAGES */
+
+.character {
+  width: 200px;
+}
+
+.hint:hover {
+  cursor: pointer;
+}
+
+.objects {
+  width: 100px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/*PENSAR MENU
+
+
+
+
+/////// hints /////*/
+
+.hint-clickable {
+    text-decoration: underline wavy;
+    cursor: pointer;
+}
+
+.hint-clicked {
+  color: tomato
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+  
+<div class="container">
+  <div class="header">
+    <p>HEADER</p>
+
+  </div>
+  <div class="pages">
+
+    <div class="page pensar">
+      <h1>PENSAR</h1>
+
+      <div>
+        <button onClick="slide('next')">Hall de entrada ↦</button>
+      </div>
+    </div>
+
+    <div class="page hall">
+      <h1>HALL DE ENTRADA</h1>
+      <img src="https://cdn-icons-png.flaticon.com/512/5631/5631162.png" class="img character hint" id="hint">
+      <div>
+        <button onClick="slide('prev')">↤ Pensar</button>
+        <button onClick="slide('next')">Cozinha ↦</button>
+      </div>
+    </div>
+
+    <div class="page cozinha">
+      <h1>COZINHA</h1>
+      <img src="https://cdn-icons-png.flaticon.com/512/5159/5159832.png" class="img character hint" id="hint">
+      <div>
+        <button onClick="slide('prev')">↤ Hall de entrada</button>
+        <button onClick="slide('next')">Quartos ↦</button>
+      </div>
+    </div>
+    <div class="page quartos">
+      <h1>QUARTOS</h1>
+      <div>
+        <button onClick="slide('prev')">↤ Cozinha</button>
+        <button onClick="slide('next')">Sala de jantar ↦</button>
+      </div>
+    </div>
+    <div class="page four">
+      <h1>SALA DE JANTAR</h1>
+      <img src="https://cdn-icons-png.flaticon.com/512/3328/3328554.png" class="img character hint" id="hint">
+      <div>
+        <button onClick="slide('prev')">↤ Quartos</button>
+        <button onClick="slide('first')">MODO PENSAR</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <img src="https://cdn-icons-png.flaticon.com/512/5631/5631162.png" class="character">
+    <p><span class="hint-clickable" id="hint-clickable" title="Fulaninho">Fulaninho</span> <span class="hint-clickable" id="hint-clickable>de Tal</span></p>
+    <p>"Não aguento mais trabalhar para este homem."</p>
+    <img title="Algumas moedas de pouco valor" src="https://cdn-icons-png.flaticon.com/512/4951/4951403.png" class="objects" alt="ALT TEXT TESTE">
+
+  </div>
+</div>
+
+<div class="footer">
+  <p>FOOTER</p>
+  <ul>
+    <li class="hint-list-item" id="hint-list-item" value="Fulaninho""">Fulaninho</li>
+    <li class="hint-list-item" id="hint-list-item">de Tal</li>
+  </ul>
+</div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+body{
+    margin: 0;
+}
+
+.wrapper{
+    background-color: #111;
+
+}
+
+.locations-container{
+    max-width: 900px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-areas: 
+        "PhobosUnexplored MarsFlyby CeresUnexplored VenusOrbit VenusUnexplored"
+        "MarsUnexplored MarsOrbit InnerPlanetsTransferWithMercury VenusFlyby ."
+        ". . Earthorbit LunarOrbit MoonUnexplored"
+        "MercuryFlyby MercuryOrbit  SuborbitalFlightUnexplored LunarFlyBy ."
+        "SolarRadiationUnexplored MercuryUnexplored Earth . ."
+        ;
+}
+
+
+.locations-container img {
+    width: 210px;
+    height: 210px;
+    z-index: 1;
+}
+
+.PhobosUnexplored {
+    grid-area: PhobosUnexplored;
+    transform: rotate(90deg);
+    }
+
+.MarsFlyby {
+    grid-area: MarsFlyby;
+    transform: rotate(90deg);
+}
+
+.Ceres-unexplored {
+    grid-area: CeresUnexplored;
+}
+
+.VenusOrbit {
+    grid-area: VenusOrbit;
+    transform: rotate(-90deg);
+}
+
+.VenusUnexplored {
+    grid-area: VenusUnexplored;
+    transform: rotate(-90deg);
+}
+
+.MarsUnexplored {
+    grid-area: MarsUnexplored;
+    transform: rotate(90deg);
+
+}
+
+.MarsOrbit {
+    grid-area: MarsOrbit;
+    transform: rotate(90deg);
+
+}
+
+.InnerPlanetsTransferWithMercury {
+    grid-area: InnerPlanetsTransferWithMercury;
+}
+
+.VenusFlyby {
+    grid-area: VenusFlyby;
+    transform: rotate(-90deg);
+}
+
+.Earthorbit {
+    grid-area: Earthorbit;
+}
+
+.LunarOrbit {
+    grid-area: LunarOrbit;
+    transform: rotate(-90deg);
+}
+
+.MoonUnexplored {
+    grid-area: MoonUnexplored;
+    transform: rotate(-90deg);
+}
+
+.MercuryFlyby {
+    grid-area: MercuryFlyby;
+}
+
+.MercuryOrbit {
+    grid-area: MercuryOrbit;
+}
+
+.SuborbitalFlightUnexplored {
+    grid-area: SuborbitalFlightUnexplored;
+    border: solid 1px tomato;
+}
+
+.LunarFlyBy {
+    grid-area: LunarFlyBy;
+        transform: rotate(-90deg);
+}
+
+.MercuryUnexplored {
+    grid-area: MercuryUnexplored;
+}
+
+.Earth {
+    grid-area: Earth;
+}
+
+.SolarRadiationUnexplored {
+    grid-area: SolarRadiationUnexplored;
+}
+
+//SHIP, DRAG AND DROP
+
+
+.hide{
+    display: none;
+}
+
+.drag-over {
+    border: dashed 3px red;
+}
+
+.shipImg {
+    grid-row: 5;
+    grid-column: 3;
+    z-index: 2;
+    margin: auto;
+}
+
+.shipImg img {
+    width: 60px;
+    height: 60px;
+}
+
+.red {
+    border: solid 4px red;
+}
+
+.drag-over {
+    border: dotted 2px red;
+}
