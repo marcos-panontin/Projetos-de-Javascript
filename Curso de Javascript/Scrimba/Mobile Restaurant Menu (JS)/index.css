@@ -1,0 +1,46 @@
+body{
+    color: tomato;
+    margin: 0;
+}
+
+.wrapper{
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+header{
+    background-color: dodgerblue;
+}
+
+.individual-food-item{
+    border-bottom: 2px solid grey;
+    display: flex;
+    align-items: center;
+
+}
+
+.food-pic{
+    font-size: 70px;
+    margin: 0;
+}
+
+.plus-btn{
+    border-radius: 100px;
+    font-size: 40px;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+
+
+.food-item-div{
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+
+.hidden{
+    display: none;
+}

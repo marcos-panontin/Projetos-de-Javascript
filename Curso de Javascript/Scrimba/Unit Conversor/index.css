@@ -1,0 +1,80 @@
+@font-face {
+    font-family: Inter;
+    src: url("Fonts/Inter-Regular.ttf")
+}
+body {
+    font-size: 13px;
+    font-family: Inter;
+    text-align: center;
+    margin: 0px;
+    font-family: Inter;
+    height: 100%;
+}
+
+#hero-div {
+    font-family: Inter;
+    background-size: cover;
+    background: #6943FF;
+    color: #FFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#header {
+    margin-top: 33px;
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+#input-el {
+    width: 207px;
+    background: #6943FF;
+    height: 83px;
+    border: 2px solid #B295ff;
+    border-radius: 5px;
+    text-align: center;
+    color: #F4F4F4;
+    font-size: 58px;
+}
+
+::placeholder {
+    color: #F4F4F4;
+}
+
+#convert-btn {
+    padding: 5px 10px;
+    border-radius: 5px;
+    background: #FFFF;
+    cursor: pointer;
+    margin: 27px auto 34px auto;
+    width: 117px;
+    height: 42px;
+    border: none;
+    font-size: 22px;
+    color: #3D3D3D;
+}
+
+#units-macro-div {
+    background: #F4F4F4;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    height: 600px;
+
+}
+
+.unit-div {
+    border-radius: 5px;
+    margin: 26px auto;
+    padding: 20px;
+    background: #FFFF;
+    font-size: 20px;
+    max-width: 600px;
+}
+    
+
+.unit-title {
+    color: #5A537B;
+    font-size: 25px;
+}

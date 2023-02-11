@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <title>Forca</title>
+</head>
+<body>
+    <div class="container">
+        <h1>HANGMAN</h1>
+        <h2>Instruction lorem ipsum</h2>
+
+        <div class="alphabet">
+            <button class="alphabet-btn">A</button>
+            <button class="alphabet-btn">B</button>
+            <button class="alphabet-btn">C</button>
+            <button class="alphabet-btn">D</button>
+            <button class="alphabet-btn">E</button>
+            <button class="alphabet-btn">F</button>
+            <button class="alphabet-btn">G</button>
+            <button class="alphabet-btn">H</button>
+            <button class="alphabet-btn">I</button>
+            <button class="alphabet-btn">J</button>
+            <button class="alphabet-btn">K</button>
+            <button class="alphabet-btn">L</button>
+            <button class="alphabet-btn">M</button>
+            <button class="alphabet-btn">N</button>
+            <button class="alphabet-btn">O</button>
+            <button class="alphabet-btn">P</button>
+            <button class="alphabet-btn">Q</button>
+            <button class="alphabet-btn">R</button>
+            <button class="alphabet-btn">S</button>
+            <button class="alphabet-btn">T</button>
+            <button class="alphabet-btn">U</button>
+            <button class="alphabet-btn">V</button>
+            <button class="alphabet-btn">W</button>
+            <button class="alphabet-btn">X</button>
+            <button class="alphabet-btn">Y</button>
+            <button class="alphabet-btn">Z</button>
+
+
+        </div>
+
+        <h1>Choose a category:
+            <select id="categories">
+                <option></option>
+                <option value="animals">Animals</option>
+                <option value="countries">Countries</option>
+                <option value="colors">Colors</option>
+                <option value="food">Food</option>
+                <option value="movies">Movies</option>
+            </select>
+        </h1>
+
+        <h1>Choose a difficulty:
+            <select id="difficulties">
+                <option></option>
+                <option value="6">Easy (6 lives)</option>
+                <option value="5">Middle (5 lives)</option>
+                <option value="4">Hard (4 lives)</option>
+            </select>
+        </h1>
+
+        <h1 id="message-select" class="displayNone">Select a category, difficulty and click on "NEW GAME".</h1>
+
+        <button class="new-btn" id="new-btn">NEW GAME</button>
+
+        <div class="guessing-div" id="guessing-div">
+        </div>
+        <h1 id="message-lose" class="message-lose displayNone">DEAD! YOU LOST! 😨</h1>
+        <h1 id="message-win" class="message-win displayNone">YOU WON THE GAME! 🎉</h1>
+        <img src="images/hangman0.png" class="hangman-img hangman-img-easy hangman-img-mid hangman-img-hard img-0">
+        <img src="images/hangman1.png" class="hangman-img img-1 hangman-img-easy hangman-img-hard displayNone">
+        <img src="images/hangman2.png" class="hangman-img img-2 hangman-img-easy hangman-img-mid hangman-img-hard displayNone">
+        <img src="images/hangman3.png" class="hangman-img img-3 hangman-img-easy hangman-img-mid displayNone">
+        <img src="images/hangman4.png" class="hangman-img img-4 hangman-img-easy hangman-img-mid hangman-img-hard displayNone">
+        <img src="images/hangman5.png" class="hangman-img img-5 hangman-img-easy hangman-img-mid displayNone">        
+        <img src="images/hangman6.png" class="hangman-img img-6 hangman-img-easy hangman-img-mid hangman-img-hard displayNone">
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

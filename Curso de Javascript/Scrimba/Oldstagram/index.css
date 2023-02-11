@@ -1,0 +1,100 @@
+@font-face {
+    src: url("fonts/source-sans-pro.black.ttf");
+    font-family: Source Black;
+}
+
+@font-face {
+    src: url("fonts/source-sans-pro.regular.ttf");
+    font-family: SourceR;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 375px;
+    font-family: SourceR;
+}
+
+header {
+    border-bottom: 2px #C6C6C6 solid;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.logo {
+    width: 127px;
+    margin: 10px auto 10px 12px;
+}
+
+.user-portrait {
+    width: 34px;
+    border-radius: 30px;
+    margin-left: auto;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.artist-banner {
+    margin: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.mini-portrait {
+    width: 34px;
+    border-radius: 400px;
+    margin-right: 7px;
+    cursor: pointer;
+}
+
+.artist-info {
+    margin-bottom: 0;
+}
+
+h1 {
+    font-size: 14px;
+    margin: 0;
+}
+
+h2 {
+    font-size: 12px;
+    margin: 0;
+
+}
+
+.portrait {
+    width: 375px;
+}
+
+.buttons-div {
+    margin: 15px 0 10px 13px;
+    display: flex;
+    width: 105px;
+    justify-content: space-between;
+}
+
+.icons {
+    width: 24px;
+    cursor: pointer;
+}
+
+.icons:hover,
+.bold:hover {
+    opacity: 0.35;
+}
+
+h1 {
+    font-family: Source Black;
+}
+
+p {
+    font-size: 13px;
+    margin-left: 13px;
+}
+
+.bold {
+    font-family: Source Black;
+    cursor: pointer;
+    }

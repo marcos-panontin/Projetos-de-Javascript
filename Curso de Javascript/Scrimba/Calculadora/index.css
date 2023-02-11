@@ -1,0 +1,94 @@
+body {
+    background-color: #2a4172;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    border: 4px solid #14213d;
+    background-color: aliceblue;
+    width: 320px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.full-display {
+    border: solid 1px #14213d;
+    background-color: #14213d;
+    margin: 10px;
+    padding: 10px 15px 10px 10px;
+    text-align: end;
+    color: #ffff;
+    font-size: 40px;
+    height: 80px;
+}
+
+.full-display:hover {
+    background-color: #203664;
+}
+
+.display, .mini-display {
+    margin: 0;
+    padding: 0;
+}
+
+.display {
+    font-size: 50px;
+}
+
+.mini-display {
+    font-size: 25px;
+    opacity: .8;
+}
+
+.buttonsDiv {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.operators {
+    background-color: #a0abf3;
+}
+
+.operators:hover {
+    background-color: rgb(140, 149, 207);
+    color: #ffff;
+}
+
+button {
+    padding: 10px 20px;
+    width: 60px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #e5e5e5;
+    border: none;
+}
+
+button:hover {
+    background-color: #cccbcb;
+}
+
+.equal {
+    background-color: rgb(255, 144, 144);
+    grid-row: span 3;
+}
+
+.equal:hover {
+    background-color:  rgb(216, 131, 131);
+}
+
+.clear, .delete {
+    background-color: rgb(120, 252, 120);
+}
+
+.clear:hover, .delete:hover {
+    background-color: rgb(98, 207, 98);
+    color: #ffff;
+}
+
+.clear{
+    margin: 0;
+}

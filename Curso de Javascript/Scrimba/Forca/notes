@@ -1,0 +1,18 @@
+1- way to use html description ("colors", "food") as the trigger for getting the correct array (convert string to array name);
+
+2- select difficulty
+
+2.1- game won: Party Image
+               letter buttons unavaiable
+               new game
+               
+2.2- game lost: Death image
+                communicate correct answer
+               letter buttons unavaiable
+               new game
+
+3- reset buttons css after new game is pressed (reset colors)
+
+4- if game is not started (game won, lost or no first game started), make letter buttons unavailable in css
+
+5 - msg caso clique em NEW GAME sem selecionar categoria e dificuldade
