@@ -1,25 +1,22 @@
-body{
+body {
     margin: 0;
 }
 
-.wrapper{
+.wrapper {
     background-color: #111;
-
 }
 
-.locations-container{
+.locations-container {
     max-width: 900px;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-areas: 
+    grid-template-areas:
         "PhobosUnexplored MarsFlyby CeresUnexplored VenusOrbit VenusUnexplored"
         "MarsUnexplored MarsOrbit InnerPlanetsTransferWithMercury VenusFlyby ."
         ". . Earthorbit LunarOrbit MoonUnexplored"
         "MercuryFlyby MercuryOrbit  SuborbitalFlightUnexplored LunarFlyBy ."
-        "SolarRadiationUnexplored MercuryUnexplored Earth . ."
-        ;
+        "SolarRadiationUnexplored MercuryUnexplored Earth . .";
 }
-
 
 .locations-container img {
     width: 210px;
@@ -30,7 +27,7 @@ body{
 .PhobosUnexplored {
     grid-area: PhobosUnexplored;
     transform: rotate(90deg);
-    }
+}
 
 .MarsFlyby {
     grid-area: MarsFlyby;
@@ -54,13 +51,11 @@ body{
 .MarsUnexplored {
     grid-area: MarsUnexplored;
     transform: rotate(90deg);
-
 }
 
 .MarsOrbit {
     grid-area: MarsOrbit;
     transform: rotate(90deg);
-
 }
 
 .InnerPlanetsTransferWithMercury {
@@ -96,12 +91,11 @@ body{
 
 .SuborbitalFlightUnexplored {
     grid-area: SuborbitalFlightUnexplored;
-    border: solid 1px tomato;
 }
 
 .LunarFlyBy {
     grid-area: LunarFlyBy;
-        transform: rotate(-90deg);
+    transform: rotate(-90deg);
 }
 
 .MercuryUnexplored {
@@ -116,15 +110,10 @@ body{
     grid-area: SolarRadiationUnexplored;
 }
 
-//SHIP, DRAG AND DROP
+/* DISPLAY NONE */
 
-
-.hide{
+.displayNone {
     display: none;
-}
-
-.drag-over {
-    border: dashed 3px red;
 }
 
 .shipImg {
@@ -139,10 +128,33 @@ body{
     height: 60px;
 }
 
-.red {
-    border: solid 4px red;
+/* Context Menu */
+
+.context-menu {
+    color: black;
+    position: absolute;
+    background-color: white;
+    border: 1px solid yellow;
+    z-index: 10;
 }
 
-.drag-over {
-    border: dotted 2px red;
+.context-menu ul {
+    padding: 0px;
+    margin: 0;
+    min-width: 250px;
+    list-style: none;
+}
+
+.context-menu li {
+    border-bottom: 1px solid black;
+    font-size: 14px;
+    padding: 3px 0;
+    margin: 0;
+    min-width: 250px;
+    list-style: none;
+}
+
+.context-menu li:hover {
+    background-color: rgb(110, 245, 230);
+    cursor: pointer;
 }
