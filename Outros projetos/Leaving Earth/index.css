@@ -120,7 +120,7 @@ body {
 }
 
 .shipImg {
-    grid-row: 5;
+    grid-row: 2;
     grid-column: 3;
     z-index: 2;
     margin: auto;

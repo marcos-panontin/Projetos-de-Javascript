@@ -26,12 +26,32 @@ function rightClick(e) {
 
     switch (true) {
         case targetListaDeClasses.contains("shipImg"):
+
+            //APAGANDO O MENU ANTERIOR
+            document.getElementById("contextMenu").innerHTML = ''
+            
             //MOSTRANDO O MENU PARA NAVE
-            const menu = document.getElementById("contextMenu");
-            menu.classList.toggle("displayNone");
-            menu.style.left = e.pageX + "px";
-            menu.style.top = e.pageY + "px";
+            const menu = document.createElement('ul');
+            menu.classList.add('context-menu')
+            
+            
+            for (let index = 0; index < manuevers.length; index += 1) {
+                if (manuevers[index].From === findShipLocation()) {
+                    console.log(manuevers[index].To);
+                    const menuItem = document.createElement('li');
+                    menuItem.textContent += `Travel to ${manuevers[index].To}`
+                menu.appendChild(menuItem);
+            }
+            
+        }
+        menu.style.left = e.pageX + "px";
+        menu.style.top = e.pageY + "px";
+        // menu.classList.toggle("displayNone");
+        document.getElementById('contextMenu').appendChild(menu);
             break;
+            
+            
+
 
         case targetListaDeClasses.contains("location"):
             console.log("Clicou em locação");
