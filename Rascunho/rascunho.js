@@ -51,3 +51,23 @@ function drop(e) {
 
     console.log(draggable)
 }
+
+
+
+
+function highestCount(array) {
+    let arrayOrganize = array.sort((a, b) => b - a);
+    console.log(arrayOrganize);
+    console.log("arrayOrganiza length" + arrayOrganize.length);
+    let biggerNumber = arrayOrganize[0];
+    let frequency = 0;
+    for (let index = 0; index < arrayOrganize.length; index += 1) {
+        console.log(arrayOrganize[index]);
+        if (biggerNumber === arrayOrganize[index]) {
+            frequency += 1;
+        }
+    }
+            return frequency;
+
+}
+console.log(highestCount([27, 32, 45, 39, 12, 27, 14, 45, 45]));

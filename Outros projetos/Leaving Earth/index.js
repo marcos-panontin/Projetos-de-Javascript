@@ -1,3 +1,6 @@
+import { manuevers } from "./manuevers.js";
+
+
 // Calling rightClick function
 document.oncontextmenu = rightClick;
 
@@ -8,34 +11,26 @@ document.oncontextmenu = rightClick;
 //     document.getElementById("contextMenu").style.display = "none";
 // }
 
+
+
+
+
 function rightClick(e) {
     // Preventing the default right click menu from popping up
-
+    
     e.preventDefault();
 
-    //MOSTRANDO O MENU
-    const menu = document.getElementById("contextMenu");
-    menu.classList.toggle("displayNone");
-    menu.style.left = e.pageX + "px";
-    menu.style.top = e.pageY + "px";
-
-    // Clicou em nave? - USANDO IF STATEMENT (substituído pelo Switch Statement)
-
-    // if (e.target.id === "shipImg") {
-    //     console.log("Clicou na nave");
-    // }
-
-    // // Clicou em location?
-    // else if (e.target.classList.contains("location")) {
-    //     console.log("Clicou em location");
-    // }
     const targetListaDeClasses = e.target.classList;
 
     // Checking what class the clicked element contains and triggering the aproppriate response
 
     switch (true) {
         case targetListaDeClasses.contains("shipImg"):
-            console.log("Clicou na nave");
+            //MOSTRANDO O MENU PARA NAVE
+            const menu = document.getElementById("contextMenu");
+            menu.classList.toggle("displayNone");
+            menu.style.left = e.pageX + "px";
+            menu.style.top = e.pageY + "px";
             break;
 
         case targetListaDeClasses.contains("location"):
@@ -43,6 +38,9 @@ function rightClick(e) {
             break;
     }
 }
+
+// POPULATING THE RIGHT CLICK MENU DINAMICALLY, DEPENDING ON THE LOCATION AND ITS POSSIBLE DESTINATIONS
+
 
 //////////////////////////////////////////
 //////// MOVING THE SHIP /////////////////
@@ -59,24 +57,61 @@ const shipRight = ship.getBoundingClientRect().right;
 const shipBottom = ship.getBoundingClientRect().bottom;
 const shipLeft = ship.getBoundingClientRect().left;
 
-const locationsCollection = Array.from(
-    document.getElementsByClassName("location")
-);
-
-locationsCollection.forEach(checkingOverlap);
 
 // CHECKING WHICH LOCATION MATCHES THE SHIP COORDINATES
 
-function checkingOverlap(location) {
-    if (
-        shipTop > location.getBoundingClientRect().top &&
-        shipBottom < location.getBoundingClientRect().bottom &&
-        shipLeft > location.getBoundingClientRect().left &&
-        shipRight < location.getBoundingClientRect().right
-    ) {
-        console.log(location);
-    }
+function findShipLocation() {
+    let shipCurrentLocation = '';
+    const locationsCollection = Array.from(
+        document.getElementsByClassName("location")
+    );
+    
+    locationsCollection.forEach(location => {
+        if (
+            shipTop > location.getBoundingClientRect().top &&
+            shipBottom < location.getBoundingClientRect().bottom &&
+            shipLeft > location.getBoundingClientRect().left &&
+            shipRight < location.getBoundingClientRect().right
+        ) {
+            shipCurrentLocation = location.name;
+        }
+
+    });
+    return shipCurrentLocation
 }
+
+console.log(findShipLocation());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // CODE FOR DRAGGING THE SHIP (NOT WORKING, DONT KNOW WHY)
 

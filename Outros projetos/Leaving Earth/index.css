@@ -1,3 +1,6 @@
+/* body > * {border: 1px solid red;} 
+body > * > * {border: 1px solid yellow;} */
+
 body {
     margin: 0;
 }
@@ -138,12 +141,12 @@ body {
     z-index: 10;
 }
 
-.context-menu ul {
+.context-menu {
     padding: 0px;
     margin: 0;
     min-width: 250px;
-    list-style: none;
-}
+    list-style: none; 
+} 
 
 .context-menu li {
     border-bottom: 1px solid black;
@@ -155,6 +158,7 @@ body {
 }
 
 .context-menu li:hover {
-    background-color: rgb(110, 245, 230);
+    background-color: rgb(29, 29, 167);
+    color: white;
     cursor: pointer;
 }

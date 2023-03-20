@@ -1,4 +1,4 @@
-const manuevers = [
+export const manuevers = [
 	{ From: "Earth", To: "Earth Orbit", Difficulty: 8, Exclamation: false, Aerobraking: false, Hourglasses: 0, OptionalHourglass: false, SolarRadiation: false, Reentry: false, Landing: false, OptionalLanding: false, BackgroundClass: 'location-earth-gravity' },
 	{ From: "Earth", To: "Suborbital Space", Difficulty: 3, Exclamation: false, Aerobraking: false, Hourglasses: 0, OptionalHourglass: false, SolarRadiation: false, Reentry: false, Landing: false, OptionalLanding: false, BackgroundClass: 'location-earth-gravity' },
 	{ From: "Suborbital Space", To: "Earth Orbit", Difficulty: 5, Exclamation: false, Aerobraking: false, Hourglasses: 0, OptionalHourglass: false, SolarRadiation: false, Reentry: false, Landing: false, OptionalLanding: false, BackgroundClass: 'location-earth-gravity' },
