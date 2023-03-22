@@ -1,6 +1,5 @@
 import { manuevers } from "./manuevers.js";
 
-
 // Calling rightClick function
 document.oncontextmenu = rightClick;
 
@@ -8,50 +7,56 @@ document.oncontextmenu = rightClick;
 // // document.onclick = hideMenu;
 
 // function hideMenu() {
-//     document.getElementById("contextMenu").style.display = "none";
+//
 // }
 
+//CLOSING CONTEXT MENU ON LEFT CLICK ELSEWHERE
 
-
-
+document.addEventListener("click", () => {
+    if (document.getElementById("contextMenu").innerHTML) {
+        document.getElementById("contextMenu").classList.toggle("displayNone");
+    }
+});
 
 function rightClick(e) {
     // Preventing the default right click menu from popping up
-    
-    e.preventDefault();
 
+    e.preventDefault();
     const targetListaDeClasses = e.target.classList;
 
     // Checking what class the clicked element contains and triggering the aproppriate response
 
     switch (true) {
         case targetListaDeClasses.contains("shipImg"):
+            //REMOVING DISPLAYNONE FROM CLOSING PREVIOUS MENU
+            document
+                .getElementById("contextMenu")
+                .classList.remove("displayNone");
 
             //APAGANDO O MENU ANTERIOR
-            document.getElementById("contextMenu").innerHTML = ''
-            
-            //MOSTRANDO O MENU PARA NAVE
-            const menu = document.createElement('ul');
-            menu.classList.add('context-menu')
-            
-            
-            for (let index = 0; index < manuevers.length; index += 1) {
-                if (manuevers[index].From === findShipLocation()) {
-                    console.log(manuevers[index].To);
-                    const menuItem = document.createElement('li');
-                    menuItem.textContent += `Travel to ${manuevers[index].To}`
-                menu.appendChild(menuItem);
-            }
-            
-        }
-        menu.style.left = e.pageX + "px";
-        menu.style.top = e.pageY + "px";
-        // menu.classList.toggle("displayNone");
-        document.getElementById('contextMenu').appendChild(menu);
-            break;
-            
-            
+            document.getElementById("contextMenu").innerHTML = "";
 
+            //MOSTRANDO O MENU PARA NAVE
+            const menu = document.createElement("ul");
+            menu.classList.add("context-menu");
+
+            const currentLocation = findShipLocation()
+            for (let index = 0; index < manuevers.length; index += 1) {
+                if (manuevers[index].From === currentLocation) {
+                    // CREATING THE MENU WITH POSSIBLE LOCATIONS
+                    const menuItem = document.createElement("li");
+                    menuItem.textContent += `Travel to ${manuevers[index].To}`;
+                    menu.appendChild(menuItem);
+                    // LISTENING FOR CLICKS ON LOCATIONS AND CALLING THE TRAVEL TO FUNCTION
+                    menuItem.addEventListener("click", () => {
+                        travelTo(manuevers[index].To);
+                    });
+                }
+            }
+            menu.style.left = e.pageX + "px";
+            menu.style.top = e.pageY + "px";
+            document.getElementById("contextMenu").appendChild(menu);
+            break;
 
         case targetListaDeClasses.contains("location"):
             console.log("Clicou em locação");
@@ -59,8 +64,21 @@ function rightClick(e) {
     }
 }
 
-// POPULATING THE RIGHT CLICK MENU DINAMICALLY, DEPENDING ON THE LOCATION AND ITS POSSIBLE DESTINATIONS
+const ship = document.getElementById("shipImg");
 
+const shipContainer = document.querySelector(".ship-icon-container");
+
+function travelTo(futureLocation) {
+    locationsCollection.forEach((location) => {
+        if (futureLocation === location.name) {
+            shipContainer.setAttribute("style", "border: 1px solid black");
+            shipContainer.style.gridRow = location.dataset.row;
+            shipContainer.style.gridColumn = location.dataset.column;
+        }
+    });
+}
+
+// POPULATING THE RIGHT CLICK MENU DINAMICALLY, DEPENDING ON THE LOCATION AND ITS POSSIBLE DESTINATIONS
 
 //////////////////////////////////////////
 //////// MOVING THE SHIP /////////////////
@@ -68,70 +86,63 @@ function rightClick(e) {
 
 // CHECKING IF ELEMENTS OVERLAP - CHECKING WHERE THE SHIP IS
 
-const ship = document.getElementById("shipImg");
-
 //GETTING SHIP LOCATIONS
 
-const shipTop = ship.getBoundingClientRect().top;
-const shipRight = ship.getBoundingClientRect().right;
-const shipBottom = ship.getBoundingClientRect().bottom;
-const shipLeft = ship.getBoundingClientRect().left;
-
+const shipTop = shipContainer.getBoundingClientRect().top;
+const shipRight = shipContainer.getBoundingClientRect().right;
+const shipBottom = shipContainer.getBoundingClientRect().bottom;
+const shipLeft = shipContainer.getBoundingClientRect().left;
+console.log(
+    `shiptob: ${shipTop} / shipRight: ${shipRight} / shipBottom: ${shipBottom} / shipLeft: ${shipLeft}`
+);
 
 // CHECKING WHICH LOCATION MATCHES THE SHIP COORDINATES
+const locationsCollection = Array.from(
+    document.getElementsByClassName("location")
+);
 
-function findShipLocation() {
-    let shipCurrentLocation = '';
-    const locationsCollection = Array.from(
-        document.getElementsByClassName("location")
-    );
-    
-    locationsCollection.forEach(location => {
+function findShipLocation () {
+    let shipCurrentLocation = "";
+
+    locationsCollection.forEach((location) => {
+
+        //     console.log(
+        //         `Location: ${location.name} /// locationTop: ${
+        //             location.getBoundingClientRect().top
+        //         } / locationRight: ${
+        //             location.getBoundingClientRect().right
+        //         } / locationBottom: ${
+        //             location.getBoundingClientRect().bottom
+        //         } / locationLeft: ${location.getBoundingClientRect().left}`
+        //     );
+        
+        // console.log(
+        //     shipTop > location.getBoundingClientRect().top &&
+        //         shipBottom < location.getBoundingClientRect().bottom &&
+        //         shipLeft > location.getBoundingClientRect().left &&
+        //         shipRight < location.getBoundingClientRect().right
+        // );
+
         if (
             shipTop > location.getBoundingClientRect().top &&
             shipBottom < location.getBoundingClientRect().bottom &&
             shipLeft > location.getBoundingClientRect().left &&
             shipRight < location.getBoundingClientRect().right
         ) {
-            shipCurrentLocation = location.name;
-        }
 
+            shipCurrentLocation = location.name;
+            console.log(shipCurrentLocation);
+            return shipCurrentLocation;
+        }
     });
-    return shipCurrentLocation
 }
 
-console.log(findShipLocation());
+function initialShipRender() {
+    // ship.style.gridRow = 5;
+    // ship.style.gridColumn = 3;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+initialShipRender();
 
 // CODE FOR DRAGGING THE SHIP (NOT WORKING, DONT KNOW WHY)
 

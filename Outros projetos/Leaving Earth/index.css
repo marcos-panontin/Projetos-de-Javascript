@@ -119,16 +119,18 @@ body {
     display: none;
 }
 
-.shipImg {
-    grid-row: 2;
+.ship-icon-container {
+    display: flex;
+    grid-row: 1;
     grid-column: 3;
     z-index: 2;
     margin: auto;
 }
 
-.shipImg img {
-    width: 60px;
-    height: 60px;
+.ship-icon-container img {
+
+    width: 70px;
+    height: 70px;
 }
 
 /* Context Menu */
@@ -137,23 +139,22 @@ body {
     color: black;
     position: absolute;
     background-color: white;
-    border: 1px solid yellow;
+    border: 1px solid black;
     z-index: 10;
 }
 
 .context-menu {
     padding: 0px;
     margin: 0;
-    min-width: 250px;
+    min-width: 220px;
     list-style: none; 
 } 
 
 .context-menu li {
     border-bottom: 1px solid black;
     font-size: 14px;
-    padding: 3px 0;
+    padding: 3px 5px;
     margin: 0;
-    min-width: 250px;
     list-style: none;
 }
 
@@ -162,3 +163,4 @@ body {
     color: white;
     cursor: pointer;
 }
+
