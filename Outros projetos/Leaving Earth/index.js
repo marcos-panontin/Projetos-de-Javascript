@@ -12,9 +12,10 @@ document.oncontextmenu = rightClick;
 
 //CLOSING CONTEXT MENU ON LEFT CLICK ELSEWHERE
 
-document.addEventListener("click", () => {
-    if (document.getElementById("contextMenu").innerHTML) {
-        document.getElementById("contextMenu").classList.toggle("displayNone");
+document.addEventListener("click", (event) => {
+    if (
+        document.getElementById("contextMenu").innerHTML && !event.target.classList.contains('shipImg') && event.target.tagName !== 'LI') {
+        document.getElementById("contextMenu").classList.add("displayNone");
     }
 });
 
@@ -29,9 +30,8 @@ function rightClick(e) {
     switch (true) {
         case targetListaDeClasses.contains("shipImg"):
             //REMOVING DISPLAYNONE FROM CLOSING PREVIOUS MENU
-            document
-                .getElementById("contextMenu")
-                .classList.remove("displayNone");
+            contextMenu.classList.remove("displayNone");
+
 
             //APAGANDO O MENU ANTERIOR
             document.getElementById("contextMenu").innerHTML = "";
@@ -40,12 +40,13 @@ function rightClick(e) {
             const menu = document.createElement("ul");
             menu.classList.add("context-menu");
 
-            const currentLocation = findShipLocation()
+            // const currentLocation = findShipLocation()
+            const currentLocation = shipCurrentLocation
             for (let index = 0; index < manuevers.length; index += 1) {
                 if (manuevers[index].From === currentLocation) {
                     // CREATING THE MENU WITH POSSIBLE LOCATIONS
                     const menuItem = document.createElement("li");
-                    menuItem.textContent += `Travel to ${manuevers[index].To}`;
+                    menuItem.innerHTML += `<i class="bi bi-rocket-takeoff"></i> to ${manuevers[index].To} | ${manuevers[index].Difficulty}`;
                     menu.appendChild(menuItem);
                     // LISTENING FOR CLICKS ON LOCATIONS AND CALLING THE TRAVEL TO FUNCTION
                     menuItem.addEventListener("click", () => {
@@ -67,13 +68,17 @@ function rightClick(e) {
 const ship = document.getElementById("shipImg");
 
 const shipContainer = document.querySelector(".ship-icon-container");
+const contextMenu = document.getElementById('contextMenu');
 
 function travelTo(futureLocation) {
+    contextMenu.classList.add("displayNone");
+
     locationsCollection.forEach((location) => {
         if (futureLocation === location.name) {
             shipContainer.setAttribute("style", "border: 1px solid black");
             shipContainer.style.gridRow = location.dataset.row;
             shipContainer.style.gridColumn = location.dataset.column;
+            shipCurrentLocation = location.name;
         }
     });
 }
@@ -92,54 +97,56 @@ const shipTop = shipContainer.getBoundingClientRect().top;
 const shipRight = shipContainer.getBoundingClientRect().right;
 const shipBottom = shipContainer.getBoundingClientRect().bottom;
 const shipLeft = shipContainer.getBoundingClientRect().left;
-console.log(
-    `shiptob: ${shipTop} / shipRight: ${shipRight} / shipBottom: ${shipBottom} / shipLeft: ${shipLeft}`
-);
+
 
 // CHECKING WHICH LOCATION MATCHES THE SHIP COORDINATES
 const locationsCollection = Array.from(
     document.getElementsByClassName("location")
 );
 
-function findShipLocation () {
-    let shipCurrentLocation = "";
+let shipCurrentLocation = "Earth";
 
-    locationsCollection.forEach((location) => {
+// function findShipLocation () {
 
-        //     console.log(
-        //         `Location: ${location.name} /// locationTop: ${
-        //             location.getBoundingClientRect().top
-        //         } / locationRight: ${
-        //             location.getBoundingClientRect().right
-        //         } / locationBottom: ${
-        //             location.getBoundingClientRect().bottom
-        //         } / locationLeft: ${location.getBoundingClientRect().left}`
-        //     );
+//     for (let location of locationsCollection) {
+
+    
+
+//         //     console.log(
+//         //         `Location: ${location.name} /// locationTop: ${
+//         //             location.getBoundingClientRect().top
+//         //         } / locationRight: ${
+//         //             location.getBoundingClientRect().right
+//         //         } / locationBottom: ${
+//         //             location.getBoundingClientRect().bottom
+//         //         } / locationLeft: ${location.getBoundingClientRect().left}`
+//         //     );
         
-        // console.log(
-        //     shipTop > location.getBoundingClientRect().top &&
-        //         shipBottom < location.getBoundingClientRect().bottom &&
-        //         shipLeft > location.getBoundingClientRect().left &&
-        //         shipRight < location.getBoundingClientRect().right
-        // );
+//         // console.log(
+//         //     shipTop > location.getBoundingClientRect().top &&
+//         //         shipBottom < location.getBoundingClientRect().bottom &&
+//         //         shipLeft > location.getBoundingClientRect().left &&
+//         //         shipRight < location.getBoundingClientRect().right
+//         // );
 
-        if (
-            shipTop > location.getBoundingClientRect().top &&
-            shipBottom < location.getBoundingClientRect().bottom &&
-            shipLeft > location.getBoundingClientRect().left &&
-            shipRight < location.getBoundingClientRect().right
-        ) {
+//         if (
+//             shipTop > location.getBoundingClientRect().top &&
+//             shipBottom < location.getBoundingClientRect().bottom &&
+//             shipLeft > location.getBoundingClientRect().left &&
+//             shipRight < location.getBoundingClientRect().right
+//         ) {
 
-            shipCurrentLocation = location.name;
-            console.log(shipCurrentLocation);
-            return shipCurrentLocation;
-        }
-    });
-}
+//             shipCurrentLocation = location.name;
+//             return shipCurrentLocation;
+//         }
+//     };
+// }
 
 function initialShipRender() {
-    // ship.style.gridRow = 5;
-    // ship.style.gridColumn = 3;
+    // ship.style.gridRowStart = "5";
+    // ship.style.gridColumnStart = "3";
+    // ship.style.border = 'solid 1px yellow'
+    // console.log(ship);
 }
 
 initialShipRender();
