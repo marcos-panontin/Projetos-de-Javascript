@@ -1,14 +1,34 @@
 import { manuevers } from "./manuevers.js";
 
+// CAPTURING DOM ELEMENTS
+
+const ship = document.getElementById("shipImg");
+const shipContainer = document.querySelector(".ship-icon-container");
+const contextMenu = document.getElementById('contextMenu');
+const locationsContainer = document.getElementById("locations-container");
+
+//DECLARING BUTTONS
+const newShipButton = document.getElementById("create-new-ship-btn");
+
+
+// DECLARING VARIABLES
+const shipsArray = [];
+const shipTop = shipContainer.getBoundingClientRect().top;
+const shipRight = shipContainer.getBoundingClientRect().right;
+const shipBottom = shipContainer.getBoundingClientRect().bottom;
+const shipLeft = shipContainer.getBoundingClientRect().left;
+
+let shipCurrentLocation = "Earth";
+// CHECKING WHICH LOCATION MATCHES THE SHIP COORDINATES
+const locationsCollection = Array.from(
+    document.getElementsByClassName("location")
+);
+
+
 // Calling rightClick function
 document.oncontextmenu = rightClick;
 
-// // Hiding the menu IF already displayed
-// // document.onclick = hideMenu;
 
-// function hideMenu() {
-//
-// }
 
 //CLOSING CONTEXT MENU ON LEFT CLICK ELSEWHERE
 
@@ -46,7 +66,7 @@ function rightClick(e) {
                 if (manuevers[index].From === currentLocation) {
                     // CREATING THE MENU WITH POSSIBLE LOCATIONS
                     const menuItem = document.createElement("li");
-                    menuItem.innerHTML += `<i class="bi bi-rocket-takeoff"></i> to ${manuevers[index].To} | ${manuevers[index].Difficulty}`;
+                    menuItem.innerHTML += `<i class="bi bi-rocket-takeoff"></i> to ${manuevers[index].To} | Difficulty: ${manuevers[index].Difficulty}`;
                     menu.appendChild(menuItem);
                     // LISTENING FOR CLICKS ON LOCATIONS AND CALLING THE TRAVEL TO FUNCTION
                     menuItem.addEventListener("click", () => {
@@ -65,10 +85,6 @@ function rightClick(e) {
     }
 }
 
-const ship = document.getElementById("shipImg");
-
-const shipContainer = document.querySelector(".ship-icon-container");
-const contextMenu = document.getElementById('contextMenu');
 
 function travelTo(futureLocation) {
     contextMenu.classList.add("displayNone");
@@ -83,29 +99,122 @@ function travelTo(futureLocation) {
     });
 }
 
-// POPULATING THE RIGHT CLICK MENU DINAMICALLY, DEPENDING ON THE LOCATION AND ITS POSSIBLE DESTINATIONS
+function dockNewShip() {
+createNewShip();
+}
+
+function createNewShip() {
+    const newShip = new Ship(2, 10);
+    Ship.count += 1;
+    shipsArray.push(newShip);
+    console.log(shipsArray);
+
+    // creating the newShip HTML
+
+    const newShipHTML = document.createElement('div');
+    newShipHTML.classList.add("ship-icon-container");
+    const newShipImgTag = document.createElement('img');
+    newShipImgTag.classList.add('shipImg');
+    newShipImgTag.src = 'images/otherImages/nave3.png';
+    newShipHTML.appendChild(newShipImgTag);
+locationsContainer.appendChild(newShipHTML)
+}
+
+
+function Ship (parameter1, parameter2) {
+    this.name = `Ship${Ship.count}`;
+    this.propulsion = parameter1;
+    this.weight = parameter2;
+    this.currentLocation = '';
+    this.imageSRC = '';
+
+}
+
+Ship.count = 0;
+
+// EVENT LISTENERS
+
+newShipButton.addEventListener('click', dockNewShip)
+
+
 
 //////////////////////////////////////////
 //////// MOVING THE SHIP /////////////////
 //////////////////////////////////////////
 
-// CHECKING IF ELEMENTS OVERLAP - CHECKING WHERE THE SHIP IS
-
-//GETTING SHIP LOCATIONS
-
-const shipTop = shipContainer.getBoundingClientRect().top;
-const shipRight = shipContainer.getBoundingClientRect().right;
-const shipBottom = shipContainer.getBoundingClientRect().bottom;
-const shipLeft = shipContainer.getBoundingClientRect().left;
 
 
-// CHECKING WHICH LOCATION MATCHES THE SHIP COORDINATES
-const locationsCollection = Array.from(
-    document.getElementsByClassName("location")
-);
 
-let shipCurrentLocation = "Earth";
 
+
+// DEPRECATED CODE
+
+// function initialShipRender() {
+//     // ship.style.gridRowStart = "5";
+//     // ship.style.gridColumnStart = "3";
+//     // ship.style.border = 'solid 1px yellow'
+//     // console.log(ship);
+// }
+
+// initialShipRender();
+
+
+
+// CODE FOR DRAGGING THE SHIP (NOT WORKING, DONT KNOW WHY)
+
+// /* draggable element */
+// const shipItem = document.querySelector(".shipImg");
+
+// shipItem.addEventListener("dragstart", dragStart);
+
+// function dragStart(e) {
+    //     e.dataTransfer.setData("text/plain", e.target.id);
+    //     setTimeout(() => {
+        //         e.target.classList.add("hide");
+        //     }, 0);
+        // }
+        
+        // /* drop targets */
+        // const locations = document.querySelectorAll(".location");
+        
+// boxes.forEach((box) => {
+//     location.addEventListener("dragenter", dragEnter);
+//     location.addEventListener("dragover", dragOver);
+//     location.addEventListener("dragleave", dragLeave);
+//     location.addEventListener("drop", drop);
+// });
+
+// function dragEnter(e) {
+    //     e.preventDefault();
+//     e.target.classList.add("drag-over");
+// }
+
+// function dragOver(e) {
+    //     e.preventDefault();
+    //     e.target.classList.add("drag-over");
+    // }
+    
+    // function dragLeave(e) {
+        //     e.target.classList.remove("drag-over");
+        // }
+        
+        // function drop(e) {
+            //     e.target.classList.remove("drag-over");
+            
+//     // get the draggable element
+//     const id = e.dataTransfer.getData("text/plain");
+//     const draggable = document.getElementById(id);
+
+//     // add it to the drop target
+//     e.target.appendChild(draggable);
+
+//     // display the draggable element
+//     draggable.classList.remove("hide");
+// }
+
+
+
+// UNUSED FUNCTION TO FIND SHIP LOCATION. DECIDED TO START AT EARTH AND UPDATE A CURRENTSHIPLOCATION VARIABLE
 // function findShipLocation () {
 
 //     for (let location of locationsCollection) {
@@ -140,65 +249,4 @@ let shipCurrentLocation = "Earth";
 //             return shipCurrentLocation;
 //         }
 //     };
-// }
-
-function initialShipRender() {
-    // ship.style.gridRowStart = "5";
-    // ship.style.gridColumnStart = "3";
-    // ship.style.border = 'solid 1px yellow'
-    // console.log(ship);
-}
-
-initialShipRender();
-
-// CODE FOR DRAGGING THE SHIP (NOT WORKING, DONT KNOW WHY)
-
-// /* draggable element */
-// const shipItem = document.querySelector(".shipImg");
-
-// shipItem.addEventListener("dragstart", dragStart);
-
-// function dragStart(e) {
-//     e.dataTransfer.setData("text/plain", e.target.id);
-//     setTimeout(() => {
-//         e.target.classList.add("hide");
-//     }, 0);
-// }
-
-// /* drop targets */
-// const locations = document.querySelectorAll(".location");
-
-// boxes.forEach((box) => {
-//     location.addEventListener("dragenter", dragEnter);
-//     location.addEventListener("dragover", dragOver);
-//     location.addEventListener("dragleave", dragLeave);
-//     location.addEventListener("drop", drop);
-// });
-
-// function dragEnter(e) {
-//     e.preventDefault();
-//     e.target.classList.add("drag-over");
-// }
-
-// function dragOver(e) {
-//     e.preventDefault();
-//     e.target.classList.add("drag-over");
-// }
-
-// function dragLeave(e) {
-//     e.target.classList.remove("drag-over");
-// }
-
-// function drop(e) {
-//     e.target.classList.remove("drag-over");
-
-//     // get the draggable element
-//     const id = e.dataTransfer.getData("text/plain");
-//     const draggable = document.getElementById(id);
-
-//     // add it to the drop target
-//     e.target.appendChild(draggable);
-
-//     // display the draggable element
-//     draggable.classList.remove("hide");
 // }
