@@ -32,7 +32,6 @@ const alunos = [
 
 
 const senha = alunos.sort().join("");
-console.log(senha)
 // const senha = "alice";
 const submission = document.getElementById("inputText");
 
