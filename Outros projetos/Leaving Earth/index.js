@@ -44,8 +44,6 @@ function rightClick(e) {
 
     e.preventDefault();
     const targetListaDeClasses = e.target.classList;
-    console.log(e.target);
-    console.log(e.target.id);
 
     // Checking what class the clicked element contains and triggering the aproppriate response
 
@@ -53,7 +51,7 @@ function rightClick(e) {
         case targetListaDeClasses.contains("shipImg"):
             //REMOVING DISPLAYNONE FROM CLOSING PREVIOUS MENU
             contextMenu.classList.remove("displayNone");
-
+console.log(e.target.parentNode.dataset.currentlocation)
 
             //APAGANDO O MENU ANTERIOR
             document.getElementById("contextMenu").innerHTML = "";
@@ -65,7 +63,8 @@ function rightClick(e) {
             // const currentLocation = findShipLocation()
             const shipId = e.target.id;
             console.log(shipId);
-            const currentLocation = shipCurrentLocation
+            // const currentLocation = shipCurrentLocation
+            const currentLocation = e.target.parentNode.dataset.currentlocation;
             for (let index = 0; index < manuevers.length; index += 1) {
                 if (manuevers[index].From === currentLocation) {
                     // CREATING THE MENU WITH POSSIBLE LOCATIONS
@@ -93,14 +92,13 @@ function rightClick(e) {
 function travelTo(futureLocation, shipID) {
     contextMenu.classList.add("displayNone");
     const shipContainer = document.getElementById(shipID);
-    console.log(shipContainer);
 
     locationsCollection.forEach((location) => {
         if (futureLocation === location.name) {
             shipContainer.setAttribute("style", "border: 1px solid black");
             shipContainer.style.gridRow = location.dataset.row;
             shipContainer.style.gridColumn = location.dataset.column;
-            shipCurrentLocation = location.name;
+            shipContainer.dataset.currentlocation = location.name;
         }
     });
 }
@@ -118,10 +116,13 @@ function createNewShip() {
 
     const newShipHTML = document.createElement('div');
     newShipHTML.classList.add("ship-icon-container");
-    newShipHTML.id = `ship${Ship.count}`
+    newShipHTML.id = `ship${Ship.count}`;
+    newShipHTML.dataset.currentlocation = 'Earth'
     const newShipImgTag = document.createElement('img');
     newShipImgTag.classList.add('shipImg');
     newShipImgTag.src = `images/otherImages/nave${Ship.count}.png`;
+        newShipImgTag.id = `ship${Ship.count}`
+
     newShipHTML.appendChild(newShipImgTag);
     locationsContainer.appendChild(newShipHTML)
 }
