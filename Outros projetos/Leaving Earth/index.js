@@ -44,6 +44,8 @@ function rightClick(e) {
 
     e.preventDefault();
     const targetListaDeClasses = e.target.classList;
+    console.log(e.target);
+    console.log(e.target.id);
 
     // Checking what class the clicked element contains and triggering the aproppriate response
 
@@ -61,6 +63,8 @@ function rightClick(e) {
             menu.classList.add("context-menu");
 
             // const currentLocation = findShipLocation()
+            const shipId = e.target.id;
+            console.log(shipId);
             const currentLocation = shipCurrentLocation
             for (let index = 0; index < manuevers.length; index += 1) {
                 if (manuevers[index].From === currentLocation) {
@@ -70,7 +74,7 @@ function rightClick(e) {
                     menu.appendChild(menuItem);
                     // LISTENING FOR CLICKS ON LOCATIONS AND CALLING THE TRAVEL TO FUNCTION
                     menuItem.addEventListener("click", () => {
-                        travelTo(manuevers[index].To);
+                        travelTo(manuevers[index].To, shipId);
                     });
                 }
             }
@@ -86,8 +90,10 @@ function rightClick(e) {
 }
 
 
-function travelTo(futureLocation) {
+function travelTo(futureLocation, shipID) {
     contextMenu.classList.add("displayNone");
+    const shipContainer = document.getElementById(shipID);
+    console.log(shipContainer);
 
     locationsCollection.forEach((location) => {
         if (futureLocation === location.name) {
@@ -107,17 +113,17 @@ function createNewShip() {
     const newShip = new Ship(2, 10);
     Ship.count += 1;
     shipsArray.push(newShip);
-    console.log(shipsArray);
 
     // creating the newShip HTML
 
     const newShipHTML = document.createElement('div');
     newShipHTML.classList.add("ship-icon-container");
+    newShipHTML.id = `ship${Ship.count}`
     const newShipImgTag = document.createElement('img');
     newShipImgTag.classList.add('shipImg');
-    newShipImgTag.src = 'images/otherImages/nave3.png';
+    newShipImgTag.src = `images/otherImages/nave${Ship.count}.png`;
     newShipHTML.appendChild(newShipImgTag);
-locationsContainer.appendChild(newShipHTML)
+    locationsContainer.appendChild(newShipHTML)
 }
 
 
