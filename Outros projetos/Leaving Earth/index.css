@@ -21,8 +21,8 @@ body {
 }
 
 .locations-container img {
-  width: 210px;
-  height: 210px;
+  width: 200px;
+  height: 200px;
   z-index: 1;
 }
 
@@ -114,8 +114,8 @@ body {
 
 .buttons-location {
   grid-area: buttons-location;
-  width: 210px;
-  height: 210px;
+  width: 200px;
+  height: 200px;
   padding: 10px;
   z-index: 1;
 }

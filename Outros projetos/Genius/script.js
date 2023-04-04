@@ -38,14 +38,23 @@ const illuminateButtons = () => {
 };
 
 const newGame = () => {
-  // newGameText.style.display = 'none';
   isGameOn = true;
   generateColorSequence();
   illuminateButtons();
-  console.log(randomizedColorsArray);
+  let position = 0;
+  let areAnswersCorrect = false;
   colorButtons.forEach((colorButton) => {
     colorButton.addEventListener("click", (event) => {
-      console.log(event.target);
+      if (randomizedColorsArray[position] === event.target) {
+        areAnswersCorrect = true;
+        position += 1;
+      } else if (randomizedColorsArray[position] !== event.target) {
+        console.log('errou!');
+        areAnswersCorrect = false;
+      }
+        if (position === randomizedColorsArray.length && areAnswersCorrect) {
+          console.log("next step");
+        }
     });
   });
 };
