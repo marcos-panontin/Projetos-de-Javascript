@@ -102,6 +102,9 @@ body {
   background-color: rgb(154, 154, 154);
 }
 
+.start-btn:disabled {
+  color: black;
+}
 
 .change-opacity {
   opacity: 0.35;
