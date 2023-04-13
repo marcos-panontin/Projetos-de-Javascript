@@ -20,17 +20,36 @@
     />
     <!-- MY CSS -->
     <link rel="stylesheet" href="style.css" />
+
+
+    <!-- AUDIOS -->
+
+    <audio id="sound1">
+  	<source src="./soundEffects/simonSound1.mp3"></source>
+  </audio>
+    <audio id="sound2">
+  	<source src="./soundEffects/simonSound2.mp3"></source>
+  </audio>
+    <audio id="sound3">
+  	<source src="./soundEffects/simonSound3.mp3"></source>
+  </audio>
+    <audio id="sound4">
+  	<source src="./soundEffects/simonSound4.mp3"></source>
+  </audio>
+    <audio id="soundError">
+  	<source src="./soundEffects/failure-drum-sound-effect-2-7184.mp3"></source>
+  </audio>
     <title>Document</title>
   </head>
   <body>
     <div class="container">
       <h1 class="main-title">GENIUS</h1>
       <h1 class="best-score">
-        Seu recorde: <span id="best-score"></span>
+        SEU RECORDE: <span id="best-score"></span>
       </h1>
-      <h1 class="current-score">
-        Pontuação atual: <span id="current-score"></span>
-      </h1>
+      <!-- <h1 class="current-score">
+      TURNO ATUAL: <span id="current-turn"></span>
+      </h1> -->
       <section class="colors-container">
         <div class="color-button" id="color-button-1" data-color="red"></div>
         <div class="color-button" id="color-button-2" data-color="green"></div>
@@ -42,6 +61,6 @@
       </section>
     </div>
 
-    <script src="script.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>

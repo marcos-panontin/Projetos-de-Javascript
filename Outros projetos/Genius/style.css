@@ -5,7 +5,7 @@
 
 body {
   text-align: center;
-  background-color: black;
+  background-color: rgb(255, 255, 255);
   font-family: "Bubblegum Sans", cursive;
 }
 
@@ -18,20 +18,17 @@ body {
 }
 
 .main-title {
-  color: white;
-  font-size: 3em;
+  font-size: 10vh;
   margin: 1em;
 }
 
 .best-score {
-  color: white;
   font-size: 1em;
   font-family: "Roboto", sans-serif;
   font-weight: bold;
 }
 
 .current-score {
-  color: white;
   font-size: 1em;
   font-family: "Roboto", sans-serif;
     font-weight: bold;
@@ -50,27 +47,34 @@ body {
 .color-button {
   width: 47%;
   aspect-ratio: 1 / 1;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 #color-button-1 {
-  background-color: rgb(255, 30, 30);
+  background-color: darkred;
   border-top-left-radius: 100%;
+  border: 4px black solid;
 }
 
 #color-button-2 {
-  background-color: green;
+  background-color: darkgreen;
   border-top-right-radius: 100%;
+    border: 4px black solid;
+
 }
 
 #color-button-3 {
-  background-color: blue;
+  background-color: darkblue;
   border-bottom-left-radius: 100%;
+    border: 4px black solid;
+
 }
 
 #color-button-4 {
-  background-color: yellow;
+  background-color: goldenrod;
   border-bottom-right-radius: 100%;
+    border: 4px black solid;
+
 }
 
 #color-button-1:active {
@@ -94,7 +98,7 @@ body {
   aspect-ratio: 1 / 1;
   border-radius: 100%;
   align-self: center;
-  border: none;
+  border: solid 4px black;
   line-height: normal;
 }
 
